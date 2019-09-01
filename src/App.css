@@ -1,33 +1,84 @@
-.App {
-  text-align: center;
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#root {
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.home-page {
+    position: absolute;
+    display: block;
+    width: 99%;
+    height: 90%;
+    padding-bottom: 5%;
 }
 
-.App-link {
-  color: #61dafb;
+.footer {
+    height: 10%;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+    height: 10%;
+}
+
+div {
+    border: 1px solid navy;
+    margin: 1px;
+    padding: 2px;
+    text-align: center;
+}
+
+.container {
+    height: 87%;
+
+}
+
+.content-box {
+    height: 49%;
+}
+
+/* Clear floats after the columns */
+.content-box:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.content {
+    float: left;
+    width: 48.8%;
+    padding: 5px;
+    height: -webkit-fill-available;
+}
+
+
+.gutter {
+    background-color: #130dee;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    cursor: col-resize;
+    width: 10px;
+    margin: -10px 0 0 0;
+    height: 106%;
+    float: left;
+    border: none;
+}
+
+.gutter.gutter-vertical {
+    cursor: row-resize;
+    display: block;
+    border: none;
+
+}
+
+.split {
+    height: 99%;
 }
