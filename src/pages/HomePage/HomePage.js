@@ -15,7 +15,11 @@ class HomePage extends Component {
         super(props);
     }
 
-    state = {};
+    state = {
+        positionOfMid:'65 , 32',
+        positionOfTop: '63 , 33',
+        positionOfBottom: '63 , 33'
+    };
 
     componentDidMount() {
 
@@ -25,7 +29,27 @@ class HomePage extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
     }
 
+    onSizeChangedMid(e) {
+        console.log(e);
+        this.setState({
+            positionOfMid: ''+ e[0] + ' , ' + e[1]
+        })
+    }
+    onSizeChangedTop(e) {
+        console.log(e);
+        this.setState({
+            positionOfTop: ''+ e[0] + ' , ' + e[1]
+        })
+    }
+    onSizeChangedBottom(e) {
+        console.log(e);
+        this.setState({
+            positionOfBottom: ''+ e[0] + ' , ' + e[1]
+        })
+    }
+
     render() {
+        const {positionOfTop , positionOfMid, positionOfBottom} = this.state;
         return (
             <div className='home-page'>
                 <Header>
@@ -36,19 +60,24 @@ class HomePage extends Component {
                         className='split'
                         direction='vertical'
                         sizes={[65, 32]}
+                        onDragEnd={this.onSizeChangedMid.bind(this)}
+                        minSize={[282, 200]}
+
                     >
                         <Split
                             className='split'
                             direction='horizontal'
                             sizes={[63, 33]}
+                            onDragEnd={this.onSizeChangedTop.bind(this)}
                         >
                             <FilterAndList/>
-                            <ShowLocation/>
+                            <ShowLocation positions={[positionOfTop,positionOfMid,positionOfBottom]}/>
                         </Split>
                         <Split
                             className='split'
                             direction='horizontal'
                             sizes={[63, 33]}
+                            onDragEnd={this.onSizeChangedBottom.bind(this)}
                         >
                             <BasicForm/>
                             <EmptyBox/>

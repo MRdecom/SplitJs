@@ -4,7 +4,7 @@ export default class Footer extends React.Component {
     render() {
         return (
             <div className='footer'>
-                <p>Page Footer</p>
+                <span>Page Footer</span>
             </div>
         );
     }

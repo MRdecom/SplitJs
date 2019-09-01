@@ -17,8 +17,15 @@ html, body {
 }
 
 .footer {
-    height: 10%;
+    height: 6%;
+    text-align: left;
+    padding-left: 30px;
+}
 
+.footer span {
+    position: relative;
+    top: 30%;
+    left: 0;
 }
 
 .header {
@@ -33,8 +40,7 @@ div {
 }
 
 .container {
-    height: 87%;
-
+    height: 91%
 }
 
 .content-box {
@@ -82,3 +88,43 @@ div {
 .split {
     height: 99%;
 }
+/*1. alan*/
+.filter-list{
+
+}
+
+/*1. alan son*/
+
+
+/*2. alan */
+.show-location{
+
+}
+.positions-container {
+    text-align: left;
+    padding: 30px;
+    background: antiquewhite;
+    border: 5px solid navy;
+    height: 200px;
+    margin: 15px -40px -1px 35px;
+}
+/*2. alan son*/
+
+
+/*3. alan*/
+.basic-form{
+
+}
+/*3. alan son*/
+
+
+/* 4. alan */
+.empty-box {
+    text-align: left;
+    padding:0;
+}
+.empty-box p{
+    margin:0;
+}
+
+/* 4. alan son */
