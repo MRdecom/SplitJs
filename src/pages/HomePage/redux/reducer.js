@@ -1,9 +1,9 @@
-import * as types from './types';
+import {GET_COLUMNS} from "./types";
 
 export const HomePageReducer = (state = {}, action) => {
     switch (action.type) {
-        case types.GET_MOVIES_SUCCESS:
-            return { ...state, movies: action.payload };
+        case GET_COLUMNS:
+            return { ...state, columns: action.payload };
         default:
             return state;
     }

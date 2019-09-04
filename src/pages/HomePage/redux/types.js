@@ -1,0 +1,1 @@
+export const GET_COLUMNS = 'GET_COLUMNS';

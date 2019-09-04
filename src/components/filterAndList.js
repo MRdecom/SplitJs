@@ -100,7 +100,7 @@ export default class FilterAndList extends React.Component {
 
     prepareCheckBox(){
         return this.state.columns.map((col, index)=>{
-            return <label><input
+            return <label key={index}><input
                 key={index}
                 type="checkbox"
                 onChange={ this.handleChecked }
