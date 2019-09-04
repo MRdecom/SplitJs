@@ -5,7 +5,6 @@ export default class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            yearFilter: this.props.filterData || '2019'
         };
 
         this.getHeader = this.getHeader.bind(this);
@@ -13,10 +12,6 @@ export default class Table extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            columns: this.props.columns,
-            yearFilter: this.props.filterData
-        });
         this.filterData(this.props.rowsData);
     }
 
@@ -24,17 +19,19 @@ export default class Table extends React.Component {
         const {rowsData, filterData, columns} = this.props;
         if (
             (rowsData !== prevProps.rowsData)
-            && (filterData !== prevProps.filterData)
-            && (columns !== prevProps.columns)
+            || (filterData !== prevProps.filterData)
+            || (columns !== prevProps.columns)
         ) {
-            this.filterData(rowsData);
+
+            this.filterData();
         }
     }
 
-    filterData(rowsData) {
+    filterData() {
+        const rowsData = this.props.rowsData;
 
         let filteredData = rowsData.filter(dt => {
-            return dt.year === +this.state.yearFilter
+            return dt.year === +this.props.filterData
         });
         this.setState({
             data: filteredData,
@@ -42,8 +39,8 @@ export default class Table extends React.Component {
     }
 
     getHeader (){
-        return this.state.columns.map((col)=>{
-            return <th key={col.key}>{col.val}</th>
+        return this.props.columns.map((col)=>{
+            return col.checked ? <th key={col.key}>{col.val}</th> : null
         })
     }
 
@@ -55,7 +52,7 @@ export default class Table extends React.Component {
 
     renderRow(dt) {
         return this.props.columns.map((col)=>{
-            return <td key={dt[col.key]}>{dt[col.key]}</td>
+            return col.checked ? <td key={dt[col.key]}>{dt[col.key]}</td> : null
         })
     }
 
@@ -64,7 +61,7 @@ export default class Table extends React.Component {
             <div className='table-container'>
                 <table>
                     <thead>
-                    <tr>{this.state.columns && this.getHeader()}</tr>
+                    <tr>{this.props.columns && this.getHeader()}</tr>
                     </thead>
                     <tbody>
                     {this.state.data && this.getRowsData()}

@@ -93,6 +93,23 @@ div {
 
 }
 
+.option-container {
+    position: relative;
+    display: inline-block;
+}
+.option-icon {
+
+}
+
+.option-box {
+    display: none;
+    z-index: 1;
+}
+
+.option-container:hover .option-box {
+    display: block;
+}
+
 /*1. alan son*/
 
 
